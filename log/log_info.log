@@ -1,0 +1,7 @@
+2020-02-18 19:49:27,808 INFO [main] c.h.c.MapperTests [StartupInfoLogger.java:55] Starting MapperTests on Jiecongs-MacBook-Air.local with PID 17235 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-18 19:49:27,822 INFO [main] c.h.c.MapperTests [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-18 19:49:35,050 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-18 19:49:35,365 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-18 19:49:36,220 INFO [main] c.h.c.MapperTests [StartupInfoLogger.java:61] Started MapperTests in 10.145 seconds (JVM running for 14.486)
+2020-02-18 19:49:36,856 INFO [main] c.h.c.MapperTests [MapperTests.java:41] info log
+2020-02-18 19:49:36,923 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'

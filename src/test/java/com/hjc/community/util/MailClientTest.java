@@ -27,7 +27,7 @@ class MailClientTest {
 
     @Test
     public void sendMailTest() {
-        mailClient.sendEMail("445056401@qq.com", "Welcom", "Welcom HJC");
+        mailClient.sendEMail("445056401@qq.com", "Welcome", "Welcom HJC");
     }
 
     @Test

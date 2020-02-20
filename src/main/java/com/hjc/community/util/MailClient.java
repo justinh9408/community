@@ -32,6 +32,7 @@ public class MailClient {
             helper.setFrom(from);
             System.out.println(from);
             helper.setTo(to);
+            helper.setSubject(subj);
             helper.setText(content, true);
             mailSender.send(helper.getMimeMessage());
         } catch (MessagingException e) {

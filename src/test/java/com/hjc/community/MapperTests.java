@@ -25,6 +25,7 @@ public class MapperTests {
     @Autowired
     UserMapper userMapper;
 
+
     @Test
     public void testUserMapper() {
         assert userMapper != null;

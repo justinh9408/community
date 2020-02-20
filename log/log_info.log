@@ -1,7 +1,42 @@
-2020-02-18 19:49:27,808 INFO [main] c.h.c.MapperTests [StartupInfoLogger.java:55] Starting MapperTests on Jiecongs-MacBook-Air.local with PID 17235 (started by Justin in /Users/Justin/IdeaProjects/community)
-2020-02-18 19:49:27,822 INFO [main] c.h.c.MapperTests [SpringApplication.java:651] No active profile set, falling back to default profiles: default
-2020-02-18 19:49:35,050 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
-2020-02-18 19:49:35,365 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
-2020-02-18 19:49:36,220 INFO [main] c.h.c.MapperTests [StartupInfoLogger.java:61] Started MapperTests in 10.145 seconds (JVM running for 14.486)
-2020-02-18 19:49:36,856 INFO [main] c.h.c.MapperTests [MapperTests.java:41] info log
-2020-02-18 19:49:36,923 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:13:36,349 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 5768 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 11:13:36,370 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 11:13:40,935 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:13:41,191 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 11:13:42,222 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 7.478 seconds (JVM running for 11.477)
+2020-02-19 11:13:43,027 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:17:33,990 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 5967 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 11:17:34,000 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 11:17:38,373 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:17:38,603 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 11:17:39,311 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 6.732 seconds (JVM running for 10.319)
+2020-02-19 11:17:39,905 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:19:08,163 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 6039 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 11:19:08,176 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 11:19:22,720 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:19:23,188 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 11:19:24,440 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 17.893 seconds (JVM running for 22.202)
+2020-02-19 11:19:25,647 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:19:51,606 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 6083 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 11:19:51,611 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 11:19:56,519 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:19:56,841 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 11:19:57,789 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 7.663 seconds (JVM running for 10.575)
+2020-02-19 11:20:01,354 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:22:51,996 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 6233 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 11:22:52,009 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 11:22:57,910 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 11:22:58,287 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 11:22:59,595 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 9.438 seconds (JVM running for 13.092)
+2020-02-19 11:23:03,216 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 15:48:50,188 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 14107 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 15:48:50,284 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 15:49:03,981 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 15:49:04,905 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 15:49:06,884 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 21.792 seconds (JVM running for 49.694)
+2020-02-19 15:49:15,344 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-19 15:50:25,009 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:55] Starting MailClientTest on Jiecongs-MacBook-Air.local with PID 14282 (started by Justin in /Users/Justin/IdeaProjects/community)
+2020-02-19 15:50:25,048 INFO [main] c.h.c.u.MailClientTest [SpringApplication.java:651] No active profile set, falling back to default profiles: default
+2020-02-19 15:50:42,027 INFO [main] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-19 15:50:43,059 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:58] Adding welcome page template: index
+2020-02-19 15:50:44,792 INFO [main] c.h.c.u.MailClientTest [StartupInfoLogger.java:61] Started MailClientTest in 24.283 seconds (JVM running for 42.653)
+2020-02-19 15:50:54,569 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:208] Shutting down ExecutorService 'applicationTaskExecutor'

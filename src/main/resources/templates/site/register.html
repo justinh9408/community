@@ -67,7 +67,7 @@
 					<div class="form-group row">
 						<label for="username" class="col-sm-2 col-form-label text-right">账号:</label>
 						<div class="col-sm-10">
-							<input type="text" th:class="|form-control @{usernameMsg==null?'':'is-invalid'}|"
+							<input type="text" th:class="|form-control ${usernameMsg==null?'':'is-invalid'}|"
 								   th:value="${user==null?'':user.username}"
 								   id="username" name="username" placeholder="请输入您的账号!" required>
 							<div class="invalid-feedback" th:text="${usernameMsg}">
@@ -100,7 +100,7 @@
 					<div class="form-group row">
 						<label for="email" class="col-sm-2 col-form-label text-right">邮箱:</label>
 						<div class="col-sm-10">
-							<input type="email" th:class="|form-control @{emailMsg==null?'':'is-invalid'}|"
+							<input type="email" th:class="|form-control ${emailMsg==null?'':'is-invalid'}|"
 								   th:value="${user==null?'':user.email}"
 								   id="email" name="email" placeholder="请输入您的邮箱!" required>
 							<div class="invalid-feedback" th:text="${emailMsg}">

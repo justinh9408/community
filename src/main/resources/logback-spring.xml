@@ -77,11 +77,11 @@
             <charset>utf-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>debug</level>
+            <level>info</level>
         </filter>
     </appender>
 
-    <logger name="com.hjc.community" level="debug"/>
+    <logger name="com.hjc.community" level="info"/>
 
     <root level="info">
         <appender-ref ref="FILE_ERROR"/>

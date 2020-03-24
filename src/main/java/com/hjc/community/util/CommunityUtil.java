@@ -28,7 +28,7 @@ public class CommunityUtil {
         return DigestUtils.md5DigestAsHex(key.getBytes());
     }
 
-    public static String getJsonObject(int code, String msg, Map<String, String> map) {
+    public static String getJsonObject(int code, String msg, Map<String, Object> map) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);
         jsonObject.put("msg", msg);

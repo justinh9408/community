@@ -20,4 +20,16 @@ public interface CommunityConstant {
     int COMMENT_TYPE_POST = 1;
 
     int COMMENT_TYPE_REPLY = 2;
+
+    int TYPE_USER = 3;
+
+    int SYSTEM_USER_ID = 1;
+
+    String TOPIC_COMMENT = "COMMENT";
+
+    String TOPIC_LIKE = "LIKE";
+
+    String TOPIC_FOLLOW = "FOLLOW";
+
+    String TOPIC_PUBLISH = "PUBLIS";
 }

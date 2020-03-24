@@ -1,16 +1,16 @@
 package com.hjc.community.controller;
 
 import com.hjc.community.dao.DiscussPostMapper;
-import com.hjc.community.entity.Comment;
-import com.hjc.community.entity.DiscussPost;
-import com.hjc.community.entity.Page;
-import com.hjc.community.entity.User;
+import com.hjc.community.entity.*;
+import com.hjc.community.event.EventProducer;
 import com.hjc.community.service.CommentService;
 import com.hjc.community.service.DiscussPostService;
+import com.hjc.community.service.LikeService;
 import com.hjc.community.service.UserService;
 import com.hjc.community.util.CommunityConstant;
 import com.hjc.community.util.CommunityUtil;
 import com.hjc.community.util.HostHolder;
+import com.hjc.community.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +40,12 @@ public class DiscussPostController implements CommunityConstant {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    LikeService likeService;
+
+    @Autowired
+    EventProducer eventProducer;
+
     @PostMapping("/add")
     @ResponseBody
     public String addPost(String title, String content) {
@@ -53,6 +59,15 @@ public class DiscussPostController implements CommunityConstant {
         post.setContent(content);
         post.setCreateTime(new Date());
         discussPostService.addDiscussPost(post);
+
+        // 触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(user.getId())
+                .setEntityType(COMMENT_TYPE_POST)
+                .setEntityId(post.getId());
+        eventProducer.fireEvent(event);
+
         return CommunityUtil.getJsonObject(0, "成功!");
     }
 
@@ -60,8 +75,16 @@ public class DiscussPostController implements CommunityConstant {
     public String getDiscussPost(@PathVariable("discussPostId") int discussPostId, Model model, Page page) {
         DiscussPost post = discussPostService.findDiscussPostById(discussPostId);
         model.addAttribute("post", post);
+//      作者
         User user = userService.findUserById(post.getUserId());
         model.addAttribute("user", user);
+
+        long likeCount = likeService.findEntityLikeCount(COMMENT_TYPE_POST, post.getId());
+        model.addAttribute("likeCount", likeCount);
+
+        int likeStatus = hostHolder.getUser() == null ? 0 :
+                likeService.findLikeStatus(hostHolder.getUser().getId(), COMMENT_TYPE_POST, post.getId());
+        model.addAttribute("likeStatus", likeStatus);
 
         page.setLimit(5);
         page.setPath("/discuss/detail/"+discussPostId);
@@ -77,6 +100,13 @@ public class DiscussPostController implements CommunityConstant {
                 commentVo.put("comment", comment);
                 // 作者
                 commentVo.put("user", userService.findUserById(comment.getUserId()));
+                //点赞
+                likeCount = likeService.findEntityLikeCount(COMMENT_TYPE_REPLY, comment.getId());
+                commentVo.put("likeCount", likeCount);
+                // 点赞状态
+                likeStatus = hostHolder.getUser() == null ? 0 :
+                        likeService.findLikeStatus(hostHolder.getUser().getId(), COMMENT_TYPE_REPLY, comment.getId());
+                commentVo.put("likeStatus", likeStatus);
 
                 List<Comment> replyList = commentService.findCommentsByEntity(COMMENT_TYPE_REPLY, comment.getId(), 0, Integer.MAX_VALUE);
                 List<Map<String, Object>> replyVoList = new ArrayList<>();
@@ -87,7 +117,13 @@ public class DiscussPostController implements CommunityConstant {
                         replyVo.put("user",userService.findUserById(reply.getUserId()));
                         User target = reply.getTargetId() == 0 ? null : userService.findUserById(reply.getTargetId());
                         replyVo.put("target", target);
-
+                        //点赞
+                        likeCount = likeService.findEntityLikeCount(COMMENT_TYPE_REPLY, reply.getId());
+                        replyVo.put("likeCount", likeCount);
+                        // 点赞状态
+                        likeStatus = hostHolder.getUser() == null ? 0 :
+                                likeService.findLikeStatus(hostHolder.getUser().getId(), COMMENT_TYPE_REPLY, reply.getId());
+                        replyVo.put("likeStatus", likeStatus);
                         replyVoList.add(replyVo);
                     }
                 }

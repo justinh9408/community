@@ -4,6 +4,7 @@ import com.hjc.community.entity.Event;
 import com.hjc.community.entity.User;
 import com.hjc.community.event.EventProducer;
 import com.hjc.community.service.LikeService;
+import com.hjc.community.service.ScoreService;
 import com.hjc.community.util.CommunityConstant;
 import com.hjc.community.util.CommunityUtil;
 import com.hjc.community.util.HostHolder;
@@ -34,6 +35,9 @@ public class LikeController implements CommunityConstant {
     @Autowired
     EventProducer eventProducer;
 
+    @Autowired
+    ScoreService scoreService;
+
     @PostMapping("like")
     @ResponseBody
     public String like(int entityType, int entityId, int entityAuthorId, int postId) {
@@ -56,6 +60,11 @@ public class LikeController implements CommunityConstant {
                     .setData("postId",postId);
             eventProducer.fireEvent(event);
         }
+        if (entityType == COMMENT_TYPE_POST) {
+            scoreService.scoreChangedPosts(entityId);
+        }
+
+
         return CommunityUtil.getJsonObject(0, null, map);
     }
 }

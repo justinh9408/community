@@ -148,8 +148,8 @@ public class MessageController implements CommunityConstant {
 
             String content = HtmlUtils.htmlUnescape(msg.getContent());
             HashMap<String, Object> data = JSONObject.parseObject(content, HashMap.class);
-
-            msgVO.put("user", userService.findUserById((Integer) data.get("userId")));
+            User u = userService.findUserById((Integer) data.get("userId"));
+            msgVO.put("user", u);
             msgVO.put("entityType", data.get("entityType"));
             msgVO.put("entityId", data.get("entityId"));
             msgVO.put("postId", data.get("postId"));

@@ -16,6 +16,9 @@ public class RedisUtil {
     private static final String PREFIX_KAPTCHA = "kaptcha";
     private static final String PREFIX_TICKET = "ticket";
     private static final String PREFIX_USER = "user";
+    private static final String PREFIX_UV = "uv";
+    private static final String PREFIX_DAU = "dau";
+    private static final String PREFIX_POST = "post";
 
     public static String getEntityLikeKey(int entityType, int entityId) {
         return PREFIX_ENTITY_LIKE + SPLIT + entityType + SPLIT + entityId;
@@ -45,4 +48,23 @@ public class RedisUtil {
         return PREFIX_USER + SPLIT + userId;
     }
 
+    public static String getUVKey(String date) {
+        return PREFIX_UV + SPLIT + date;
+    }
+
+    public static String getUVKey(String start, String end) {
+        return PREFIX_UV + SPLIT + start + SPLIT + end;
+    }
+
+    public static String getDAUKey(String date) {
+        return PREFIX_DAU + SPLIT + date;
+    }
+
+    public static String getDAUKey(String start, String end) {
+        return PREFIX_DAU + SPLIT + start + SPLIT + end;
+    }
+
+    public static String getPostScoreKey() {
+        return PREFIX_POST + SPLIT + "score";
+    }
 }

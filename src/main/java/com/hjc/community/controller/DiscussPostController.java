@@ -3,15 +3,13 @@ package com.hjc.community.controller;
 import com.hjc.community.dao.DiscussPostMapper;
 import com.hjc.community.entity.*;
 import com.hjc.community.event.EventProducer;
-import com.hjc.community.service.CommentService;
-import com.hjc.community.service.DiscussPostService;
-import com.hjc.community.service.LikeService;
-import com.hjc.community.service.UserService;
+import com.hjc.community.service.*;
 import com.hjc.community.util.CommunityConstant;
 import com.hjc.community.util.CommunityUtil;
 import com.hjc.community.util.HostHolder;
 import com.hjc.community.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +44,9 @@ public class DiscussPostController implements CommunityConstant {
     @Autowired
     EventProducer eventProducer;
 
+    @Autowired
+    ScoreService scoreService;
+
     @PostMapping("/add")
     @ResponseBody
     public String addPost(String title, String content) {
@@ -58,6 +59,7 @@ public class DiscussPostController implements CommunityConstant {
         post.setTitle(title);
         post.setContent(content);
         post.setCreateTime(new Date());
+        post.setScore(scoreService.calculateScore(post));
         discussPostService.addDiscussPost(post);
 
         // 触发发帖事件
@@ -141,4 +143,58 @@ public class DiscussPostController implements CommunityConstant {
         return "/site/discuss-detail";
 
     }
+
+    @PostMapping("/top")
+    @ResponseBody
+    public String setTop(int id) {
+        discussPostService.updateType(id, 1);
+//        触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(COMMENT_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        return CommunityUtil.getJsonObject(0);
+    }
+
+    // 加精
+    @RequestMapping(path = "/wonderful", method = RequestMethod.POST)
+    @ResponseBody
+    public String setWonderful(int id) {
+        discussPostService.updateStatus(id, 1);
+
+        // 触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(COMMENT_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        scoreService.scoreChangedPosts(id);
+        return CommunityUtil.getJsonObject(0);
+    }
+
+    // 删除
+//    @PreAuthorize("hasRole('admin')")
+    @RequestMapping(path = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public String setDelete(int id) {
+        discussPostService.updateStatus(id, 2);
+
+        // 触发删帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_DELETE)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(COMMENT_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        return CommunityUtil.getJsonObject(0);
+    }
+
+
+
 }

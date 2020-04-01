@@ -6,6 +6,7 @@ import com.hjc.community.entity.Event;
 import com.hjc.community.event.EventProducer;
 import com.hjc.community.service.CommentService;
 import com.hjc.community.service.DiscussPostService;
+import com.hjc.community.service.ScoreService;
 import com.hjc.community.util.CommunityConstant;
 import com.hjc.community.util.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class CommentController implements CommunityConstant {
     @Autowired
     DiscussPostService postService;
 
+    @Autowired
+    ScoreService scoreService;
 
     @RequestMapping("/add/{postId}")
     public String addComment(@PathVariable("postId") int postId, Comment comment) {
@@ -50,6 +53,7 @@ public class CommentController implements CommunityConstant {
         //触发评论事件
         Event event = new Event()
                 .setTopic(TOPIC_COMMENT)
+                .setUserId(hostHolder.getUser().getId())
                 .setEntityType(comment.getEntityType())
                 .setEntityId(comment.getEntityId())
                 .setData("postId", postId);
@@ -71,7 +75,11 @@ public class CommentController implements CommunityConstant {
                     .setEntityType(COMMENT_TYPE_POST)
                     .setEntityId(postId);
             eventProducer.fireEvent(event);
+
+            scoreService.scoreChangedPosts(postId);
         }
+
+
         return "redirect:/discuss/detail/" + postId;
     }
 }

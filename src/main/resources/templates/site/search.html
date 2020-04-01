@@ -68,7 +68,7 @@
 						<img src="http://images.nowcoder.com/head/1t.png" class="mr-4 rounded-circle" alt="用户头像">
 						<div class="media-body">
 							<h6 class="mt-0 mb-3">
-								<a th:href="@{|/discuss/detail/${map.post.id}|}">
+								<a th:href="@{|/discuss/detail/${map.post.id}|}" th:utext="${map.post.title}">
 									备战<em>春招</em>，面试刷题跟他复习，一个月全搞定！</a>
 							</h6>
 							<div class="mb-3" th:utext="${map.post.content}">
